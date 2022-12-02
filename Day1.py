@@ -1,36 +1,36 @@
-
-file = open('Day1Data.txt', 'r')
-
-curr_elf = 0
-temp = 0
-food = {}
-for each in file:
-    if each != '\n':
-        temp += int(each)
-    else:
-        curr_elf += 1
-        if temp not in food:
-            food[temp] = [curr_elf]
+def orderedCalories(input):
+    file = open(input, 'r')
+    curr_elf = 0
+    temp = 0
+    food = {}
+    for each in file:
+        if each != '\n':
+            temp += int(each)
         else:
-            food[temp].append(curr_elf)
-        temp = 0
-curr_elf += 1
-if temp not in food:
-    food[temp] = [curr_elf]
-else:
-    food[temp].append(curr_elf)
+            curr_elf += 1
+            if temp not in food:
+                food[temp] = [curr_elf]
+            else:
+                food[temp].append(curr_elf)
+            temp = 0
+    curr_elf += 1
+    if temp not in food:
+        food[temp] = [curr_elf]
+    else:
+        food[temp].append(curr_elf)
 
-calories = max(food.keys())
-print(calories)
-print(food[calories])
-del food[calories]
+    ordered = sorted(food.keys())
+    return ordered
 
-calories = max(food.keys())
-print(calories)
-print(food[calories])
-del food[calories]
+def top3(input):
+    listOfCalories = orderedCalories(input)
+    return listOfCalories[-3:]
 
-calories = max(food.keys())
-print(calories)
-print(food[calories])
-del food[calories]
+def main():
+        # function calling
+    print("These are the top 3 calories that 3 different elfs carry: ",top3('Day1Data.txt'))
+ 
+ 
+# main function calling
+if __name__ == "__main__":
+    main()
