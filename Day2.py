@@ -48,12 +48,9 @@ def part2(input):
 
 
 def main():
-        # function calling
     print("Your score if second column is your rock, paper scissors pick: ", part1('Day2Data.txt'))
     print("Your score if second column is if you're winning, losing or drawing: ", part2('Day2Data.txt'))
 
  
- 
-# main function calling
 if __name__ == "__main__":
     main()

@@ -27,10 +27,7 @@ def top3(input):
     return listOfCalories[-3:]
 
 def main():
-        # function calling
     print("These are the top 3 calories that 3 different elfs carry: ",top3('Day1Data.txt'))
  
- 
-# main function calling
 if __name__ == "__main__":
     main()
